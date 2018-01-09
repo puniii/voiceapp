@@ -1,0 +1,24 @@
+<%= form_with(model: @voice, local: true ,url: choose_new_or_edit ) do |form| %>
+  <% if @voice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @voice.errors.count %>件のエラーがあります</h2>
+      
+      <ul>
+        <% @voice.errors.full_messages.each do |msg| %> 
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="voice_title">
+    <%= form.label :"What are you doing now?" ,class: "form_label"%><br>
+    <%= form.label :"let's tweet now!" ,class: "form_label"%><br>
+    <%= form.label :"let's talk voice!" ,class: "form_label"%><br>
+    <%= form.text_field :content ,class: "form_text" %>
+  </div>
+  <%= form.submit "tweet",class:"verify_btn"%>
+  
+  <% end %>
+  <div class ="back">
+  <%= link_to "back to the voice", voices_path %>
+  </div>

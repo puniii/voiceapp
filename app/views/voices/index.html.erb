@@ -1,0 +1,40 @@
+<div class="container">
+<header class="header clearfix">
+  <a href="#">
+  <%= image_tag 'twitter-3d-front-icon.png',class:"profile_img"%>
+  </a>
+    <nav>
+      <ul class="top_menu clearfix">
+        <li><a href="/voices/new">新規投稿</a></li>
+        <li><a href="voices">Voice一覧</a></li>
+      </ul>
+    </nav>
+</header>
+</div>
+
+<div class = "center">
+<h1>Voice一覧</h1>
+<div class = "main">
+  <p><%= notice %></p>
+  
+<table class = "summary">
+
+<% @voices.each do |voice| %>
+  <tr>
+    <td><%= voice.content %></td>
+    <td><%= link_to '確認', voice_path(voice.id),class:"verify_btn" %></td>
+    <td><%= link_to '編集', edit_voice_path(voice.id), data: { confirm: '編集しますか？' },class:"edit_btn" %></td> 
+    <td><%= link_to '削除', voice_path(voice.id), method: :delete ,data: { confirm: '削除しますか？' },class:"deletes_btn" %></td>
+  </tr>
+<% end %>
+</table>
+<br>
+<%= link_to 'tweet!', new_voice_path,class:"edit_btn" %>
+</div>
+</div>
+
+
+<footer class="footer">
+  <p>江平 綾　2017年10月期</p>
+</footer>
+

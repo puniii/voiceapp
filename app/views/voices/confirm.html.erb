@@ -1,0 +1,35 @@
+<div class="container">
+<header class="header clearfix">
+  <a href="#">
+  <%= image_tag 'twitter-3d-front-icon.png',class:"profile_img"%>
+  </a>
+    <nav>
+      <ul class="top_menu clearfix">
+        <li><a href="/voices/new">新規投稿</a></li>
+        <li><a href="/voices">Voice一覧</a></li>
+      </ul>
+    </nav>
+</header>
+</div>
+
+<div class = "center">
+<div class = "main">
+<h3>登録しますか？</h3>
+
+<%= form_with(model: @voice, url: voices_path, local: true) do |form| %>
+  <%= form.hidden_field :content %>
+
+  <p>本文:<%= @voice.content %></p>
+  <%= form.submit  "登録する",class:"edit_btn" %>
+<% end %>
+
+<%= form_with(model: @voice, url: new_voice_path, local: true, method: 'get') do |form| %>
+  <%= form.hidden_field :content %>
+  <%= form.submit "戻る" ,name: 'back',class:"edit_btn"%>
+<% end %>
+</div>
+</div>
+
+<footer class="footer">
+  <p>江平 綾　2017年10月期</p>
+</footer>

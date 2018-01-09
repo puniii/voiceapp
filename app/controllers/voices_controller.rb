@@ -1,0 +1,63 @@
+class VoicesController < ApplicationController
+  before_action :set_voice, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @voices = Voice.all
+  end
+  
+  def new
+    @voice = Voice.new
+    if params[:back]
+      @voice = Voice.new(voice_params)
+    else
+      @voice = Voice.new
+    end
+  end
+  
+  def create
+    @voice = Voice.new(voice_params)
+
+    if @voice.save
+      redirect_to voices_path,notice:"つぶやきました"
+    else
+      render'new'
+    end
+  end
+  
+  def show
+    @voice = Voice.find(params[:id])
+  end
+  
+  def edit
+    @voice = Voice.find(params[:id])
+  end
+  
+  def update
+    @voice = Voice.find(params[:id])
+    if @voice.update(voice_params)
+       redirect_to voices_path,notice: "つぶやきを編集しました！"
+
+    else
+       render 'edit'
+    end
+  end
+  
+  def destroy
+    @voice.destroy
+    redirect_to voices_path, notice:"つぶやきを削除しました！"
+  end
+  
+  def confirm
+    @voice = Voice.new(voice_params)
+    render :new if @voice.invalid?
+  end
+  
+  private
+    def voice_params
+      params.require(:voice).permit(:content)
+    end
+    
+    def set_voice
+      @voice = Voice.find(params[:id])
+    end
+end
