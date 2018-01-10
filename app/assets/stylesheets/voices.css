@@ -4,7 +4,9 @@ body{
     padding:0;
     height: 100%;
     font-family: 'Avenir','Corbel','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','Meiryo UI',sans-serif;
-    background-image: image-url("20171230_030456820_iOS.jpg");
+    background-image: url("a_l_Fotor.png");
+
+    
 }
 .container {
     margin: 0 auto;
