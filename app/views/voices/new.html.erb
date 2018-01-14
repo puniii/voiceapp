@@ -1,25 +1,41 @@
 <div class="container">
-<header class="header clearfix">
-  <a href="#">
-  <%= image_tag 'twitter-3d-front-icon.png',class:"profile_img"%>
-  </a>
-    <nav>
-      <ul class="top_menu clearfix">
-        <li><a href="/voices/new">新規投稿</a></li>
-        <li><a href="/voices">Voice一覧</a></li>
-      </ul>
-    </nav>
-</header>
+  <header class="header clearfix">
+    <a href="#"><%= image_tag 'twitter-3d-front-icon.png',class:"profile_img"%></a>
+  </header>
 </div>
 
 <div class = "center">
-<h1>voice&tweet</h1>
-<p>叫んでみよう　ぼやいてみよう</p>
-<div class = "main">
-<%= render 'form' %>
-</div>
+  <h1>voice&tweet</h1>
+  <p>叫んでみよう　ぼやいてみよう</p>
+    <div class = "main">
+      <ul class="row">
+        <li class="col-md-offset-2 col-md-10">
+        <li><%= render 'form' %></li>
+        </li>
+      </ul>
+    </div>
 </div>
 
 <footer class="footer">
+  <nav class="nav nav-tabs">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
+          <span class="sr-only">メニューです</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+    
+  <div id="gnavi" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="/voices/new">新規投稿</a></li>
+      <li><a href="/voices">Voice一覧</a></li>
+      <li><a href="/voices/tops">トップに戻る</a></li>
+    </ul>
+  </div>
+  </div>
+  </nav>
   <p>aya ehira　2017/10</p>
 </footer>

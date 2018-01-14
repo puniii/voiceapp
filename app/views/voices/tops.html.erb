@@ -1,16 +1,19 @@
 <div class="container">
-  <header class="header clearfix">
-    <a href="#"><%= image_tag 'twitter-3d-front-icon.png',class:"profile_img"%></a>
-  </header>
+<header class="header clearfix">
+  <a href="#">
+  <%= image_tag 'twitter-3d-front-icon.png',class:"profile_img"%>
+  </a>
+</header>
 </div>
 
 <div class = "center">
-<div class = "main">
-<h2>tweet</h2>
-<%= render 'form' %>
+<h1>ようこそvoice&tweetへ</h1>
+<h2>
+    ここは日常のさまざまな出来事を<br>
+    思いついた時に気軽につぶやける<br>
+    そんなアプリです</h2><br>
+    <a class="btn-info btn-lg" href="/voices/new" role="button">Let's start!</a>
 </div>
-</div>
-
 <footer class="footer">
     <nav class="nav nav-tabs">
   <div class="container-fluid">
@@ -27,7 +30,6 @@
       <ul class="nav navbar-nav">
         <li><a href="/voices/new">新規投稿</a></li>
         <li><a href="/voices">Voice一覧</a></li>
-        <li><a href="/voices/tops">トップに戻る</a></li>
           </ul>
     </div>
   </div>

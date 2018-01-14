@@ -10,15 +10,27 @@
       </ul>
     </div>
   <% end %>
-  <div class="voice_title">
-    <%= form.label :"What are you doing now?" ,class: "form_label"%><br>
-    <%= form.label :"let's tweet now!" ,class: "form_label"%><br>
-    <%= form.label :"let's talk voice!" ,class: "form_label"%><br>
-    <%= form.text_field :content ,class: "form_text" %>
-  </div>
-  <%= form.submit "tweet",class:"verify_btn"%>
-  
+    
+<div class="voice_title">
+      <%= form.label :"What are you doing now?" ,class: "form_label"%><br>
+      <%= form.label :"let's tweet now!" ,class: "form_label"%><br>
+      <%= form.label :"let's talk voice!" ,class: "form_label"%><br>
+     
+      <div class="col-md-offset-1 col-md-8">
+      <%= form.text_field :content ,class: "form_text" %>
+      </div>
+      <br>
+      <div class="col-md-offset-4 col-md-4">
+      <%= form.submit "tweet", class: 'btn btn-info' %>
+      </div>
+      
+      
+      
+</div>
   <% end %>
-  <div class ="back">
-  <%= link_to "back to the voice", voices_path %>
+<div class ="back">
+  <div class="col-md-offset-2 col-md-10">
+    <%= link_to "back to the voice", voices_path, class: 'btn btn-warning'  %>
   </div>
+</div>
+

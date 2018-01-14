@@ -5,6 +5,10 @@ class VoicesController < ApplicationController
     @voices = Voice.all
   end
   
+  def tops
+    @voice = Voice.new
+  end
+  
   def new
     @voice = Voice.new
     if params[:back]
@@ -18,7 +22,7 @@ class VoicesController < ApplicationController
     @voice = Voice.new(voice_params)
 
     if @voice.save
-      redirect_to voices_path,notice:"つぶやきました"
+      redirect_to voices_path,notice:"投稿しました"
     else
       render'new'
     end
