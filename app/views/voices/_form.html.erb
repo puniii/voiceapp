@@ -10,15 +10,14 @@
       </ul>
     </div>
   <% end %>
-    
-<div class="voice_title">
+<div class="voice_title"> 
       <%= form.label :"What are you doing now?" ,class: "form_label"%><br>
       <%= form.label :"let's tweet now!" ,class: "form_label"%><br>
       <%= form.label :"let's talk voice!" ,class: "form_label"%><br>
     <div class="row">
       <div class="col-md-offset-1 col-md-8">
       <%= form.text_field :content %>
-      </div>
+    </div>
       <br>
       <div class="col-md-offset-4 col-md-4">
       <%= form.submit "tweet", class: 'btn btn-info' %>

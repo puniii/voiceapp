@@ -7,18 +7,6 @@ body{
     background-image: url("a_l_Fotor.png");
 
 }
-.container {
-    margin: 0 auto;
-    min-height: 100%;
-    
-}
-.header {
-    background-color:#F5F5F5;
-    position: relative;
-    height:80px;
-    font-size:1rem;
-    width: 100%;
-}
 .profile_img {
     width:60px;
     float: left;

@@ -2,3 +2,9 @@
 .btn-warning {
     margin: 2px;
 }
+.navbar-header {
+    padding-top: 15px;
+}
+.navbar-nav {
+    font-size: 15px;
+}
