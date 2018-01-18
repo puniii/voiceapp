@@ -1,15 +1,16 @@
 @charset "UTF-8";
 body{
     height: 100%;
+    overflow-y:scroll;
     font-family: 'Avenir','Corbel','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','Meiryo UI',sans-serif;
     background-image: url("a_l_Fotor.png");
 
 }
 .container {
-    position: relative;
-    height:80px;
+    height:100px;
     font-size:1rem;
     width:100%;
+    
 }
 .profile_img {
     width:60px;
@@ -48,8 +49,11 @@ ul li a.select  {
     color: #ff1493;
 }
 .center {
+    position: relative;
     text-align:center;
     padding-top: 30px;
+    overflow: scroll;
+    height: 800px;
 
 }
 h1 {
@@ -62,9 +66,8 @@ p {
     line-height: 10px;
 }
 .main {
-    width: 50%;
+    width:60%;
     margin: 0 auto;
-    max-width: 500px;
     overflow:scroll;    
     vertical-align: middle;
     padding: 0.5em 1em;
@@ -79,9 +82,10 @@ p {
 
 .footer {
     background-color: #2d2d2d;
+    position: fixed;
     height: 80px;
     width: 100%;
-    position: fixed;
+    margin-top:10px;
     bottom: 0;
     display: table;
 }

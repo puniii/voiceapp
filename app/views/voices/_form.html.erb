@@ -10,19 +10,22 @@
       </ul>
     </div>
   <% end %>
-<div class="voice_title"> 
+<div class="voice_title">  
+  <div class="container_fuild">
+    <div class="row">
       <%= form.label :"What are you doing now?" ,class: "form_label"%><br>
       <%= form.label :"let's tweet now!" ,class: "form_label"%><br>
       <%= form.label :"let's talk voice!" ,class: "form_label"%><br>
-    <div class="row">
-      <div class="col-md-offset-1 col-md-8">
-      <%= form.text_field :content %>
-    </div>
+ 
+      <div class="col-md-offset-4 col-xs-offset-1 col-xs-4">
+        <%= form.text_field :content, size: "10x5" %>
+      </div>
       <br>
-      <div class="col-md-offset-4 col-md-4">
+      <div class="col-md-offset-4 col-xs-4">
       <%= form.submit "tweet", class: 'btn btn-info' %>
       </div>
     </div>
+  </div>  
 </div>
   <% end %>
 <div class ="back">

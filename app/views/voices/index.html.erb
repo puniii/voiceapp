@@ -1,4 +1,4 @@
-<div class="container">
+<div class = container_fuild>
   <nav class="navbar navbar-inverse">
     <a href="#"><%= image_tag 'twitter-3d-front-icon.png',class:"profile_img"%></a>
   <div class="navbar-header">
@@ -20,24 +20,32 @@
 </nav>
 </div>
 
+
 <div class = "center">
   <h1>Voice一覧</h1>
-    <div class = "main">
-      <p><%= notice %></p>
+    <div class="container_fuild">
+     <div class = "main">
+      <div class="row">
+        <div class="col-xs-12">
+        <p><%= notice %></p>
+        
   
-      <table class = "summary">
+      <div class = "summary">
         <% @voices.each do |voice| %>
-          <tr>
-            <td><%= voice.content %></td>
-            <td><%= link_to '確認', voice_path(voice.id), class: 'btn btn-success'%></td>
-            <td><%= link_to '編集', edit_voice_path(voice.id), data: { confirm: '編集しますか？' }, class: 'btn btn-success' %></td> 
-            <td><%= link_to '削除', voice_path(voice.id), method: :delete ,data: { confirm: '削除しますか？' } , class: 'btn btn-success'%></td>
-          </tr>
+          <br>
+            <span><%= voice.content %></span><br>
+            <span><%= link_to '確認', voice_path(voice.id), class: 'btn btn-success'%></span>
+            <span><%= link_to '編集', edit_voice_path(voice.id), data: { confirm: '編集しますか？' }, class: 'btn btn-success' %></span>
+            <span><%= link_to '削除', voice_path(voice.id), method: :delete ,data: { confirm: '削除しますか？' } , class: 'btn btn-success'%></span>
         <% end %>
-       </table>
+       </div>
        <br>
+
        <%= link_to 'New tweet!', new_voice_path, class: 'btn btn-info'%>
+       </div>
+       </div>
     </div>
+  </div>
 </div>
 
 
