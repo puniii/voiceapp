@@ -1,0 +1,41 @@
+<!-- サインアップ画面 -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-6 col-md-4">
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
+        
+        <div class="card card-container">
+          <h1>Sign up</h1>
+          <p id="profile-name" class="profile-name-card"></p>
+            <div class="form-signin">
+              <%= form_with(model: @user, local: true) do |f| %>
+                <%= f.label :name %>
+                <%= f.text_field :name,class: "reauth-email" %>
+
+                <%= f.label :email %>
+                <%= f.email_field :email,class: "reauth-email" %>
+                 
+                <%= f.label :password %>
+                <%= f.password_field :password,class: "reauth-email" %>
+
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation,class: "reauth-email" %>
+
+                <%= f.submit "Create my account" ,class:"btn btn-lg btn-primary btn-block btn-signin" %>
+                <% end %>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+

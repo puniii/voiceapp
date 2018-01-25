@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-6 col-md-4">
+        <div class="card card-container">
+            <p id="profile-name" class="profile-name-card"></p>
+            <div class="form-signin">
+                
+                  <h1><%= @user.name %>さん、登録しますか？</h1>
+                  <p>メールアドレス: <%= @user.email %></p>
+                 
+                  
+                  <%= link_to 'はい', new_voice_path ,class:"btn btn-warning"%>
+                  <%= link_to 'いいえ', new_user_path ,class:"btn btn-warning"%>
+                
+            </div>
+        </div>
+     </div>
+  </div>
+</div>
+

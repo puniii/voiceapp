@@ -1,0 +1,23 @@
+<!-- ログイン画面 -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-6 col-md-4">
+        <div class="card card-container">
+          <h1>Log in</h1>
+            <p id="profile-name" class="profile-name-card"></p>
+            <div class="form-signin">
+              <span id="reauth-email" class="reauth-email"></span>
+                <%= form_for(:session, url: sessions_path) do |f| %>
+                  <%= f.label :email %>
+                  <%= f.email_field :email ,class: "reauth-email"%>
+                  <%= f.label :password %>
+                  <%= f.password_field :password ,class: "reauth-email"%>
+                  <%= f.submit "Log in" ,class:"btn btn-lg btn-primary btn-block btn-signin"%>
+                <% end %>
+                  <br>
+                  <p>New user? <%= link_to "Sign up now!", new_user_path %></p>
+            </div>
+         </div>
+     </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 class VoicesController < ApplicationController
-  before_action :set_voice, only: [:show, :edit, :update, :destroy]
+  before_action :current_user, only: [:new, :edit, :show]
 
   def index
     @voices = Voice.all

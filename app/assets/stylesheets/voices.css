@@ -10,6 +10,7 @@ body{
     height:100px;
     font-size:1rem;
     width:100%;
+
     
 }
 .profile_img {
@@ -89,13 +90,7 @@ p {
     bottom: 0;
     display: table;
 }
-.footer p {
-    font-size: 1rem;
-    color: #fff;
-    text-align: center;
-    display: table-cell;
-    vertical-align: middle;
-}
+
 .voice_title {
     line-height: 40px;
     font-size: 30px;
