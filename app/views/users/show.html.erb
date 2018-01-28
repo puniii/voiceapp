@@ -1,3 +1,4 @@
+<div class = "center">
 <div class="container">
   <div class="row">
     <div class="col-md-offset-6 col-md-4">
@@ -5,16 +6,12 @@
             <p id="profile-name" class="profile-name-card"></p>
             <div class="form-signin">
                 
-                  <h1><%= @user.name %>さん、登録しますか？</h1>
+                  <h1><%= @user.name %>さん、登録します</h1>
                   <p>メールアドレス: <%= @user.email %></p>
-                 
-                  
-                  <%= link_to 'はい', new_voice_path ,class:"btn btn-warning"%>
-                  <%= link_to 'いいえ', new_user_path ,class:"btn btn-warning"%>
-                
+                  <%= link_to "NEXT!", new_voice_path ,class:"btn btn-lg btn-primary btn-block btn-signin"%>
             </div>
         </div>
      </div>
   </div>
 </div>
-
+</div>

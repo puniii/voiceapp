@@ -26,7 +26,11 @@
     <ul class="nav navbar-nav navbar-right">
        <li><a href="/voices/new">新規投稿</a></li>
        <li><a href="/voices">Voice一覧</a></li>
-       <li><a href="/voices/tops">トップに戻る</a></li>
+    <% if logged_in? %>
+       <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+    <% else %>
+       <li><%= link_to "トップ", tops_voices_path %></li>
+    <% end %>
     </ul>
   </div>
 </nav>
@@ -34,6 +38,7 @@
       <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
       <% end %>
+      
 <%= yield %>
     
 <footer class="footer">
@@ -41,6 +46,5 @@
   <p>aya ehira　2017/10</p>
   </div>
 </footer>
-
-  </body>
+</body>
 </html>
