@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'sessions#new'
+  root to: 'voices#tops'
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
   resources :voices do

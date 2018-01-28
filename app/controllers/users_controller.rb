@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:new, :edit, :show]
+  before_action :logged_in_user, only: [:edit, :show]
 
   def new
     @user = User.new
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def logged_in_user
     unless @current_user #ログイン中のuserでない場合は、ログイン画面へリダイレクト
       flash[:referer] = 'ログインしてください'
-      redirect_to new_session_path
+      render new_session_path
     end
   end
 end

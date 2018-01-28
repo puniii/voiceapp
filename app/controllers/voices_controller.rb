@@ -68,7 +68,7 @@ class VoicesController < ApplicationController
     def logged_in_user
       unless @current_user #ログイン中のuserでない場合は、ログイン画面へリダイレクト
         flash[:referer] = 'ログインしてください'
-        redirect_to new_session_path
+        render new_session_path
       end
     end
 end
