@@ -1,5 +1,5 @@
 class VoicesController < ApplicationController
-  before_action :logged_in_user, only: [:new, :edit, :show]
+  before_action :logged_in_user, only: [:new, :edit]
 
   def index
     @voices = Voice.all
@@ -66,7 +66,7 @@ class VoicesController < ApplicationController
     end
     
     def logged_in_user
-      unless @current_user #ログイン中のuserでない場合は、ログイン画面へリダイレクト
+      unless  current_user #ログイン中のuserでない場合は、ログイン画面へリダイレクト
         flash[:referer] = 'ログインしてください'
         render new_session_path
       end

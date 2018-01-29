@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :show]
 
   def new
     @user = User.new
@@ -25,12 +24,5 @@ class UsersController < ApplicationController
   private
   def user_params
       params.require(:user).permit(:name, :email, :password,:password_confirmation)
-  end
-  
-  def logged_in_user
-    unless @current_user #ログイン中のuserでない場合は、ログイン画面へリダイレクト
-      flash[:referer] = 'ログインしてください'
-      render new_session_path
-    end
   end
 end
