@@ -1,5 +1,6 @@
 class VoicesController < ApplicationController
-  before_action :logged_in_user, only: [:new, :edit]
+  before_action :set_voice, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:new,:edit]
 
   def index
     @voices = Voice.all
@@ -48,7 +49,7 @@ class VoicesController < ApplicationController
   
   def destroy
     @voice.destroy
-    redirect_to voices_path, notice:"つぶやきを削除しました！"
+    redirect_to voices_path,notice:"つぶやきを削除しました！"
   end
   
   def confirm
