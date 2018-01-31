@@ -6,5 +6,5 @@ module VoicesHelper
     elsif action_name == 'edit'
       voice_path
     end
-  end
+    end
 end
