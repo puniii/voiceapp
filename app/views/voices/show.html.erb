@@ -1,6 +1,16 @@
+<!-- voices -->
 <div class = "center">
-<div class = "main">
-<h1>Voice</h1>
-<h2>内容: <%= @voice.content %></h2>
-</div>
+  <div class = "main">
+    <h1>Voice</h1>
+    <h2>内容: <%= @voice.content %></h2>
+    
+    <% unless @voice.user == current_user.id %>
+      <% if @favorite.present? %>
+        <%= link_to 'いいね！を取り消す',favorite_path(voice_id: @voice.id), method: :delete, class: 'btn btn-danger' %>
+      <% else %>
+        <%= link_to 'いいね！', favorites_path(voice_id: @voice.id), method: :post, class: 'btn btn-primary' %>
+      <% end %>
+      <% end %>
+            
+  </div>
 </div>

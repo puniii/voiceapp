@@ -1,17 +1,28 @@
 <div class = "center">
-<div class="container">
-  <div class="row">
-    <div class="col-md-offset-6 col-md-4">
-        <div class="card card-container">
-            <p id="profile-name" class="profile-name-card"></p>
-            <div class="form-signin">
-                
-                  <h1><%= @user.name %>さん、登録します</h1>
-                  <p>メールアドレス: <%= @user.email %></p>
-                  <%= link_to "NEXT!", new_voice_path ,class:"btn btn-lg btn-primary btn-block btn-signin"%>
-            </div>
+  <h1><%= @user.name %>さん こんにちは</h1>
+  <p>メールアドレス: <%= @user.email %></p>        
+    <%= link_to "投稿してみる", new_voice_path ,class:'btn btn-primary'%>
+    <br>
+  <div class="container_fuild">
+     <div class = "main">
+      <div class="row">
+        <div class="col-xs-12">
+
+          <div class = "summary">          
+
+        
+          <h1>いいね！一覧</h1>
+            <% @favorites_voices.each do |favorite| %>
+            
+　　　　　　  <li><%= favorite.user.name %>　さん</li>
+              <li><%= favorite.content %></li>
+              <span><%= link_to 'いいね！を取り消す', voice_path(favorite), class: 'btn btn-success'%></span>
+            
+              <br>
+            <% end %>
+          </div>  
         </div>
-     </div>
+      </div>
+    </div>
   </div>
-</div>
-</div>
+</div> 

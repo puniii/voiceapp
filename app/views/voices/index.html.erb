@@ -1,3 +1,4 @@
+<!--voice index-->
 <div class = "center">
   <h1>Voice一覧</h1>
     <div class="container_fuild">
@@ -10,13 +11,18 @@
       <div class = "summary">
         <% @voices.each do |voice| %>
           <br>
-            <span><%= voice.content %></span><br>
+          <span><h2><%= voice.user.name %>さん</h2></span>
+          <span><%= voice.content %></span>
+            <br>
             <span><%= link_to '確認', voice_path(voice.id), class: 'btn btn-success'%></span>
-            <span><%= link_to '編集', edit_voice_path(voice.id), data: { confirm: '編集しますか？' }, class: 'btn btn-success' %></span>
-            <span><%= link_to '削除', voice_path(voice.id), method: :delete ,data: { confirm: '削除しますか？' } , class: 'btn btn-success'%></span>
+              <% if voice.id == current_user.id %>
+                <span><%= link_to '編集', edit_voice_path(voice.id), data: { confirm: '編集しますか？' }, class: 'btn btn-success' %></span>
+                <span><%= link_to '削除', voice_path(voice.id), method: :delete ,data: { confirm: '削除しますか？' } , class: 'btn btn-success'%></span>
+              <% end %>
         <% end %>
-       </div>
-       <br>
+        
+      </div>
+      <br>
 
        <%= link_to 'New tweet!', new_voice_path, class: 'btn btn-info'%>
        </div>

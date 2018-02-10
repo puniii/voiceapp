@@ -27,6 +27,7 @@
        <li><a href="/voices/new">新規投稿</a></li>
        <li><a href="/voices">Voice一覧</a></li>
     <% if logged_in? %>
+       <li><%= link_to "プロフィール", user_path(current_user.id) %></li>
        <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
     <% else %>
        <li><%= link_to "トップ", tops_voices_path %></li>
