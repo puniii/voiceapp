@@ -26,7 +26,7 @@ class VoicesController < ApplicationController
     
     respond_to do |format|
     if @voice.save
-      #ContactMailer.voice_mail(@voice).deliver
+      #ContactMailer.voice_mail(@voice).deliver ←エラー回避のため外します。
       format.html { redirect_to @voice, notice: 'Contact was successfully created.' }
       format.json { render :show, status: :created, location: @voice }
       
