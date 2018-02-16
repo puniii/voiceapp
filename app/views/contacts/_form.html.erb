@@ -10,23 +10,25 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="form-signin">
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :contact_name %>
+    <%= form.text_field :name, id: :contact_name ,class: "reauth-email" %>
   </div>
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email, id: :contact_email %>
+    <%= form.text_field :email, id: :contact_email ,class: "reauth-email" %>
   </div>
 
   <div class="field">
     <%= form.label :content %>
-    <%= form.text_area :content, id: :contact_content %>
+    <%= form.text_area :content, id: :contact_content ,class: "reauth-email" %>
   </div>
-
+  
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Send" ,class:"btn btn-lg btn-primary btn-block btn-signin"%>
   </div>
+  
 <% end %>
+</div>

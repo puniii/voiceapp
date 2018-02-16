@@ -24,11 +24,16 @@ class VoicesController < ApplicationController
     @voice = Voice.new(voice_params)
     @voice.user_id = current_user.id
     
-    
+    respond_to do |format|
     if @voice.save
-      redirect_to voices_path,notice:"投稿しました"
+      #ContactMailer.voice_mail(@voice).deliver
+      format.html { redirect_to @voice, notice: 'Contact was successfully created.' }
+      format.json { render :show, status: :created, location: @voice }
+      
+      #render voices_path,notice:"投稿しました"
     else
       render'new'
+    end
     end
   end
   

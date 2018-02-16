@@ -27,7 +27,7 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true #変更
 
   config.action_mailer.perform_caching = false
 
@@ -52,6 +52,15 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   
-  config.action_mailer.default_url_options = { host: 'boyaki-bootstrap-puniii.c9users.io' }
+  config.action_mailer.default_url_options = { host: 'boyaki-bootstrap-puniii.c9users.io:8080/' }
   config.action_mailer.delivery_method = :letter_opener
+#   ActionMailer::Base.delivery_method = :smtp
+#   ActionMailer::Base.smtp_settings = {
+#   user_name: ENV['SENDGRID_USERNAME'],
+#   password: ENV['SENDGRID_PASSWORD'],
+#   domain: "heroku.com",
+#   address: "smtp.sendgrid.net",
+#   port: 587,
+#   authentication: :plain,
+#   enable_starttls_auto: true }
 end

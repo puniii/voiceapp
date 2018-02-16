@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  if Rails.env.development?
+  mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+  
   resources :contacts
+  
   root to: 'voices#tops'
   resources :favorites, only: [:create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
@@ -10,9 +15,5 @@ Rails.application.routes.draw do
     post :confirm
     get :tops
     end
-  end
-  
-  if Rails.env.development?
-  mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 end
