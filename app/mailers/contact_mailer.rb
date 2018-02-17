@@ -1,8 +1,8 @@
 class ContactMailer < ApplicationMailer
   def voice_mail(voice)
     @voice = voice
-    @user_email = @voice.user.email
-    mail to: @user_email , subject: "投稿完了しました"
+    @voice_email = @voice.user.email
+    mail to: @voice_email , subject: "投稿完了しました"
   end
   
   def contact_mail(contact)
