@@ -5,6 +5,7 @@ class VoicesController < ApplicationController
 
   def index
     @voices = Voice.all
+    
   end
   
   def tops
@@ -26,8 +27,11 @@ class VoicesController < ApplicationController
     
     respond_to do |format|
     if @voice.save
+      @voice.image.retrieve_from_cache! params[:cache][:image]
+      @voice.save!
+      
       ContactMailer.voice_mail(@voice).deliver_later
-      format.html { redirect_to @voice, notice: 'Contact was successfully created.' }
+      format.html { redirect_to @voice, notice: '投稿しました' }
       format.json { render :show, status: :created, location: @voice }
       
       #render voices_path,notice:"投稿しました"
@@ -35,6 +39,7 @@ class VoicesController < ApplicationController
       render'new'
     end
     end
+
   end
   
   def show
@@ -49,24 +54,26 @@ class VoicesController < ApplicationController
   
   def update
     @voice = Voice.find(params[:id])
-    @voice.update(voice_params)
-      redirect_to voices_path,notice: "つぶやきを編集しました！"
-
+      @voice.update(voice_params)
+      redirect_to voices_path,notice: "つぶやきを編集しました！" 
   end
   
   def destroy
       @voice.destroy
-      redirect_to voices_path,notice:"つぶやきを削除しました！"
+        @voice.update(voice_params)
+        redirect_to voices_path,notice:"つぶやきを削除しました！"
   end
   
   def confirm
     @voice = Voice.new(voice_params)
     @voice.user_id = current_user.id
+    
+    
   end
   
   private
     def voice_params
-      params.require(:voice).permit(:content, :user_id)
+      params.require(:voice).permit(:content, :user_id, :image, :image_cache)
     end
     
     def set_voice
@@ -79,4 +86,5 @@ class VoicesController < ApplicationController
         render new_session_path
       end
     end
+    
 end

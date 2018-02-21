@@ -11,14 +11,18 @@
       <div class = "summary">
         <% @voices.each do |voice| %>
           <br>
-          <span><h2><%= voice.user.name %>さん</h2></span>
+          <span><h2><%= voice.user.name %>さん</h2><%= voice.user.image.url %></span>
           <span><%= voice.content %></span>
+          <span><%= voice.image.url %></span>
+          
+          
             <br>
-            <span><%= link_to '確認', voice_path(voice.id), class: 'btn btn-success'%></span>
-              <% if voice.id == current_user.id %>
-                <span><%= link_to '編集', edit_voice_path(voice.id), data: { confirm: '編集しますか？' }, class: 'btn btn-success' %></span>
-                <span><%= link_to '削除', voice_path(voice.id), method: :delete ,data: { confirm: '削除しますか？' } , class: 'btn btn-success'%></span>
-              <% end %>
+            
+              <span><%= link_to '確認', voice_path(voice.id), class: 'btn btn-success'%></span>
+            <% if current_user.id == voice.user.id %>
+              <span><%= link_to '編集', edit_voice_path(voice.id), data: { confirm: '編集しますか？' }, class: 'btn btn-success' %></span>
+              <span><%= link_to '削除', voice_path(voice.id), method: :delete ,data: { confirm: '削除しますか？' } , class: 'btn btn-success'%></span>
+            <% end %>
         <% end %>
         
       </div>

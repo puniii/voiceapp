@@ -5,5 +5,7 @@ class Voice < ApplicationRecord
   
   validates :content,presence: true
   validates :content,length:{maximum:140}
+  mount_uploader :image, ImageUploader
+  
   
 end
