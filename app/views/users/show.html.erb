@@ -1,7 +1,9 @@
 <div class = "center">
   <h1><%= @user.name %>さん こんにちは</h1>
   <p>メールアドレス: <%= @user.email %></p>
+  <% if @user.image.present? %>
   <%= image_tag(@user.image.url) %>
+  <% end %>
     <%= link_to "投稿してみる", new_voice_path ,class:'btn btn-primary'%>
     <br>
   <div class="container_fuild">

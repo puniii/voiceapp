@@ -27,19 +27,20 @@ class VoicesController < ApplicationController
     
     respond_to do |format|
     if @voice.save
-      @voice.image.retrieve_from_cache! params[:cache][:image]
-      @voice.save!
       
       ContactMailer.voice_mail(@voice).deliver_later
       format.html { redirect_to @voice, notice: '投稿しました' }
       format.json { render :show, status: :created, location: @voice }
       
-      #render voices_path,notice:"投稿しました"
     else
       render'new'
     end
     end
-
+      
+    if params[:cache][:image].present?
+      @voice.image.retrieve_from_cache! params[:cache][:image]
+      @voice.save!
+    end
   end
   
   def show
@@ -60,20 +61,18 @@ class VoicesController < ApplicationController
   
   def destroy
       @voice.destroy
-        @voice.update(voice_params)
+        # @voice.update(voice_params)
         redirect_to voices_path,notice:"つぶやきを削除しました！"
   end
   
   def confirm
     @voice = Voice.new(voice_params)
     @voice.user_id = current_user.id
-    
-    
   end
   
   private
     def voice_params
-      params.require(:voice).permit(:content, :user_id, :image, :image_cache)
+      params.require(:voice).permit(:content, :user_id, :image)
     end
     
     def set_voice

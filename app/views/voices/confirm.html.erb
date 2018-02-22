@@ -6,7 +6,9 @@
   <%= form.hidden_field :content %>
 
   <p>本文:<%= @voice.content %></p>
+  <% if @voice.image.present? %>
   <%= image_tag(@voice.image.url) %>
+  <% end %>
 　<%= hidden_field_tag :"cache[image]",@voice.image.cache_name %>
   <%= form.submit  "登録する" , class: 'btn btn-warning' %>
 <% end %>
