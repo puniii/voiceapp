@@ -68,6 +68,9 @@ class VoicesController < ApplicationController
   def confirm
     @voice = Voice.new(voice_params)
     @voice.user_id = current_user.id
+    
+    render :new if @voice.invalid?
+    
   end
   
   private
