@@ -3,6 +3,7 @@
   <div class = "main">
     <h1>Voice</h1>
     <h2>内容: <%= @voice.content %></h2>
+    
     <%= image_tag @voice.image %>
     
     <% unless @voice.user == current_user.id %>

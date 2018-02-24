@@ -26,8 +26,8 @@ class VoicesController < ApplicationController
     @voice.user_id = current_user.id
     
     respond_to do |format|
+    
     if @voice.save
-      
       ContactMailer.voice_mail(@voice).deliver_later
       format.html { redirect_to @voice, notice: '投稿しました' }
       format.json { render :show, status: :created, location: @voice }
